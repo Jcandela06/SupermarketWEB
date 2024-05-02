@@ -19,7 +19,7 @@ namespace SupermarketWEB.Pages.Categories
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Categories == null)
+            if (id == null )
             {
                 return NotFound();
             }
@@ -31,16 +31,12 @@ namespace SupermarketWEB.Pages.Categories
             {
                 return NotFound();
             }
-            else 
-            {
-                return NotFound();
-            }
 
             return Page();
         }
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Categories == null)
+            if (id == null )
             {
                 return NotFound();
             }
@@ -52,7 +48,7 @@ namespace SupermarketWEB.Pages.Categories
                 Category = category;
                 _context.Categories.Remove(Category);
                 await _context.SaveChangesAsync();
-                
+
             }
 
             return RedirectToPage("./Index");
