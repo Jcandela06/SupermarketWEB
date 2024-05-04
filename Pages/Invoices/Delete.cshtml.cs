@@ -41,11 +41,11 @@ namespace SupermarketWEB.Pages.Invoices
 				return NotFound();
 			}
 
-			var invoice = await _context.Products.FindAsync(id);
+			var invoice = await _context.Invoices.FindAsync(id);
 
 			if (Invoice != null)
 			{
-				Invoice = Invoice;
+				Invoice = invoice;
 				_context.Invoices.Remove(Invoice);
 				await _context.SaveChangesAsync();
 
