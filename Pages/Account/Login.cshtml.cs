@@ -9,7 +9,7 @@ namespace SupermarketWEB.Pages.Account
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public User User {  get; set; }
+        public User? User {  get; set; }
         public void OnGet()
         {
             
@@ -22,8 +22,8 @@ namespace SupermarketWEB.Pages.Account
             {
                 var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Name, "admin"),
-            new Claim(ClaimTypes.Email, User.Email),
+                    new Claim(ClaimTypes.Name, "admin"),
+                    new Claim(ClaimTypes.Email, User.Email),
         };
 
                 var identity = new ClaimsIdentity(claims, "MyCookieAuth");
